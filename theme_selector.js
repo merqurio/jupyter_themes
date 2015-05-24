@@ -82,7 +82,6 @@ define(["require"], function(require) {
         Tomorrow_Light : "./themes/base16-tomorrow-light.css",
         Twilight_Dark : "./themes/base16-twilight-dark.css",
         Twilight_Light : "./themes/base16-twilight-light.css",
-        Alternative : "./themes/theme_alt.css"
     };
 
 
