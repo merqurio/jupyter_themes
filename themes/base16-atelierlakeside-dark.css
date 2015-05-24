@@ -10,66 +10,72 @@
 */
 
 /*
-    CODEMIRROR GLOBALS
+    Jupyter GLOBALS
 */
 
-.CodeMirror div.CodeMirror-cursor {
-  border-left: 2px solid #268bd2;
-  z-index: 3;
-}
-
-
 div.cell.edit_mode {
-    border: thin #75DA75 solid !important;
+  border: thin #568c3b solid !important;
 }
 
 .edit_mode div.cell.selected{
-    border-color: #FECB6E;
+  border-color: #8a8a0f;
 }
 
 .CodeMirror pre {
-  font-family: 'Source Code Pro', 'Menlo', 'Ubuntu Mono', mono;
-  font-size: 13px;
+  font-family: 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 12px;
 }
 
 div.cell.selected {
-  border-color: #66EFC2;
+  border-color: #2d8f6f;
 }
 
+div.input_prompt {
+  color: #257fad;
+}
+
+div.output_prompt {
+  color: #d22d72;
+}
+
+/*
+     GLOBALS
+*/
 
 span.ansiblack {color: #1f292e;}
-span.ansiblue {color: #2d8f6f;}
+span.ansiblue {color: #257fad;}
 span.ansigray {color: #7195a8;}
 span.ansigreen {color: #568c3b;}
 span.ansipurple {color: #5d5db1;}
 span.ansired {color: #d22d72;}
 span.ansiyellow {color: #8a8a0f;}
 
-div.output_stderr {background-color: #d22d72;}
+div.output_stderr {background-color: #161b1d;}
 div.output_stderr pre {color: #c1e4f6;}
 
 .cm-s-ipython.CodeMirror {background: #161b1d; color: #c1e4f6;}
 .cm-s-ipython div.CodeMirror-selected {background: #1f292e !important;}
-.cm-s-ipython .CodeMirror-gutters {background: #161b1d; border-right: 0px;}
+.cm-s-ipython .CodeMirror-gutters {background: #1f292e; border-right: 0px;}
 .cm-s-ipython .CodeMirror-linenumber {color: #5a7b8c;}
 .cm-s-ipython .CodeMirror-cursor {border-left: 1px solid #7195a8 !important;}
 
-.cm-s-ipython span.cm-comment {color: #b72dd2;}
+.cm-s-ipython span.cm-comment {color: #5a7b8c;}
 .cm-s-ipython span.cm-atom {color: #5d5db1;}
-.cm-s-ipython span.cm-number {color: #5d5db1;}
+.cm-s-ipython span.cm-number {color: #935c25;}
 
-.cm-s-ipython span.cm-property, .cm-s-ipython span.cm-attribute {color: #568c3b;}
-.cm-s-ipython span.cm-keyword {color: #d22d72;}
-.cm-s-ipython span.cm-string {color: #8a8a0f;}
-.cm-s-ipython span.cm-operator {color: #b72dd2;}
-.cm-s-ipython span.cm-builtin {color: #5d5db1;}
+.cm-s-ipython span.cm-property, .cm-s-ipython span.cm-attribute {color: #d22d72;}
+.cm-s-ipython span.cm-keyword {color: #5d5db1;}
+.cm-s-ipython span.cm-string {color: #568c3b;}
+.cm-s-ipython span.cm-operator {color: #ebf8ff;}
+.cm-s-ipython span.cm-builtin {color: #257fad;}
 
-.cm-s-ipython span.cm-variable {color: #568c3b;}
-.cm-s-ipython span.cm-variable-2 {color: #257fad;}
-.cm-s-ipython span.cm-def {color: #935c25;}
+.cm-s-ipython span.cm-variable {color: #257fad;}
+.cm-s-ipython span.cm-variable-2 {color: #d22d72;}
+.cm-s-ipython span.cm-def {color: #8a8a0f;}
 .cm-s-ipython span.cm-error {background: #d22d72; color: #7195a8;}
-.cm-s-ipython span.cm-bracket {color: #7ea2b4;}
+.cm-s-ipython span.cm-bracket {color: #ebf8ff;}
 .cm-s-ipython span.cm-tag {color: #d22d72;}
 .cm-s-ipython span.cm-link {color: #5d5db1;}
+.cm-s-ipython span.cm-meta {color: #d22d72;}
 
 .cm-s-ipython .CodeMirror-matchingbracket { text-decoration: underline; color: #c1e4f6 !important;}
