@@ -69,8 +69,8 @@ div.output_stderr pre {color: #e3e3e3;}
 .cm-s-ipython span.cm-operator {color: #252525;}
 .cm-s-ipython span.cm-builtin {color: #747474;}
 
-.cm-s-ipython span.cm-variable {color: #686868;}
-.cm-s-ipython span.cm-variable-2 {color: #7c7c7c;}
+.cm-s-ipython span.cm-variable {color: #464646;}
+.cm-s-ipython span.cm-variable-2 {color: #686868;}
 .cm-s-ipython span.cm-def {color: #999999;}
 .cm-s-ipython span.cm-error {background: #7c7c7c; color: #525252;}
 .cm-s-ipython span.cm-bracket {color: #464646;}
