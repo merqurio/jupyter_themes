@@ -2,22 +2,23 @@
 
 ## Notebook theme selector
 
-It's a Jupyter notebook extension to select CSS themes. The selected theme is stored in the browsers local storage so when opening a notebook it will automatically load the theme you selected the las time.
+It's a Jupyter notebook extension to select CSS fro syntax highlighting. The selected theme is stored in the browsers local storage so when opening a notebook it will automatically load the theme you selected the las time.
 
 Installation:
+    
+    $ cd jupyter_themes
+    $ cp -r **  $(ipython locate)/nbextensions/
+    $ nano $(ipython locate)/profile_default/static/custom/custom.js
 
-    $ curl -L XXXXX/master/theme_selector.js > $(ipython locate)/nbextensions/theme_selector.js
-    $ wget -r --no-parent  XXXX/themes > $(ipython locate)/nbextensions/themes
-
-Then, load it with the following code in your `custom.js`:
+Add the following code at the end of your `custom.js` and you are done.
 
 ```javascript
 $([IPython.events]).on("app_initialized.NotebookApp", function () {
-    IPython.load_extensions('theme_toggle');
+    IPython.load_extensions('theme_selector');
 });
 ```
 
-Themes where built using [base-15 builder](https://github.com/chriskempson/base16-builder).
+Syntax highlighting was built using [base-15 builder](https://github.com/chriskempson/base16-builder).
 
 ## License
 
