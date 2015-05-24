@@ -1,8 +1,10 @@
 # Jupyter themes
 
+![ example image ](http://lh3.googleusercontent.com/7Oc3PuBnm79ES9bK65hX4tfNvYwpW5oSU_G1FwKGe6xDlsWUzirnedFBtXgdUjkKh0tePzvG6W3sHfmucZWZiKScqQ=s1600)
+
 ## Notebook theme selector
 
-It's a Jupyter notebook extension to select CSS fro syntax highlighting. The selected theme is stored in the browsers local storage so when opening a notebook it will automatically load the theme you selected the las time.
+This is a Jupyter notebook extension to select a CSS file for syntax highlighting. The selected theme is stored in the browsers local storage so every time you open a notebook it will automatically load the theme you selected the last time.
 
 Installation:
     
@@ -18,7 +20,7 @@ $([IPython.events]).on("app_initialized.NotebookApp", function () {
 });
 ```
 
-Syntax highlighting was built using [base-15 builder](https://github.com/chriskempson/base16-builder).
+Syntax highlighting was built using [base-16 builder](https://github.com/chriskempson/base16-builder).
 
 ## License
 
