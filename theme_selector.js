@@ -88,7 +88,7 @@ define(["require"], function(require) {
     function add_to_toolbar(current_theme) {
 
         var ipython_toolbar = $(IPython.toolbar.element),
-        	label = $('<span/>').addClass("navbar-text permissions-list").text('Select a theme:'),
+        	label = $('<span/>').addClass("navbar-text permissions-list").text('Theme:'),
         	select = $('<select/>').attr('id', 'permissions-select').attr('class', 'permissions-list form-control select-xs');
 
         // Add label to the toolbar
