@@ -1,13 +1,15 @@
 # Jupyter themes
 
+75 syntax highlighting themes to choose from:
+
 ![ example image ](http://lh3.googleusercontent.com/7Oc3PuBnm79ES9bK65hX4tfNvYwpW5oSU_G1FwKGe6xDlsWUzirnedFBtXgdUjkKh0tePzvG6W3sHfmucZWZiKScqQ=s1600)
 
 ## Notebook theme selector
 
-This is a Jupyter notebook extension to select a CSS file for syntax highlighting. The selected theme is stored in the browsers local storage so every time you open a notebook it will automatically load the theme you selected the last time.
+This is a Jupyter notebook extension to select a CSS file for code syntax highlighting. The selected theme is stored in the browsers local storage so every time you open a notebook it will automatically load the theme you selected the last time.
 
 Installation:
-    
+
     $ cd jupyter_themes
     $ cp -r **  $(ipython locate)/nbextensions/
     $ nano $(ipython locate)/profile_default/static/custom/custom.js
