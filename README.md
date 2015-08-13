@@ -17,9 +17,17 @@ Installation:
 Add the following code at the end of your `custom.js` and you are done.
 
 ```javascript
-$([IPython.events]).on("app_initialized.NotebookApp", function () {
+if (Jupyter) {
+  $(Jupyter.events).on("app_initialized.NotebookApp", function() {
+
+    var utils = require("base/js/utils");
+    utils.load_extensions('theme_selector');
+  });
+} else {
+  $([IPython.events]).on("app_initialized.NotebookApp", function() {
     IPython.load_extensions('theme_selector');
-});
+  });
+}
 ```
 
 Syntax highlighting was built using [base-16 builder](https://github.com/chriskempson/base16-builder).
