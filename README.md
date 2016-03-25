@@ -1,23 +1,33 @@
 # Jupyter themes
 
 Modify CodeMirror's Color Syntax.
+
+-----
+
 **NEW IN 0.2** -> Uses CodeMirrors own api & themes
 
-![ example image ](http://postimg.org/image/pj4yu1vyx/)
+![ example image ](https://cloud.githubusercontent.com/assets/1485056/14039493/573bf7ac-f25d-11e5-9cd6-c6c985cc68c0.png)
 
 ## Notebook theme selector
 
 This is a Jupyter notebook extension to select code syntax highlighting. The selected theme is stored in Jupyter notebooks config file so every time you open a notebook it will automatically load the theme you selected the last time.
 
-Installation:
+### Installation:
 
-    # Create required directory in case (optional)
-    $ mkdir -p $(jupyter --data-dir)/nbextensions
-    $ cd $(jupyter --data-dir)/nbextensions
-    $ mkdir jupyter_themes && cd jupyter_themes
-    $ wget https://raw.githubusercontent.com/merqurio/jupyter_themes/master/theme_selector.js
-    # Activate the extension
-    $ jupyter nbextension enable jupyter_themes/theme_selector
+```shell
+# Create required directory in case (optional)
+$ mkdir -p $(jupyter --data-dir)/nbextensions
+$ cd $(jupyter --data-dir)/nbextensions
+$ mkdir jupyter_themes && cd jupyter_themes
+$ wget https://raw.githubusercontent.com/merqurio/jupyter_themes/master/theme_selector.js
+# Activate the extension
+$ jupyter nbextension enable jupyter_themes/theme_selector
+```
+
+### Use:
+Find your favourite theme at Cell's menu
+![Cell menu](https://cloud.githubusercontent.com/assets/1485056/14039527/b9f81060-f25d-11e5-84cf-74de7dca707b.png)
+
 
 ## License
 
