@@ -17,13 +17,13 @@ Installation:
     $ mkdir jupyter_themes && cd jupyter_themes
     $ wget https://raw.githubusercontent.com/merqurio/jupyter_themes/master/theme_selector.js
     # Activate the extension
-    $ jupyter nbextension enable vim_binding/vim_binding
+    $ jupyter nbextension enable jupyter_themes/theme_selector
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2016 Gabi de Maeztu
+Copyright (c) 2015, 2016 Gabi de Maeztu
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
