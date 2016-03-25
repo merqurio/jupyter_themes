@@ -1,42 +1,29 @@
 # Jupyter themes
 
-75 syntax highlighting themes to choose from:
+Modify CodeMirror's Color Syntax.
+**NEW IN 0.2** -> Uses CodeMirrors own api & themes
 
-![ example image ](http://lh3.googleusercontent.com/7Oc3PuBnm79ES9bK65hX4tfNvYwpW5oSU_G1FwKGe6xDlsWUzirnedFBtXgdUjkKh0tePzvG6W3sHfmucZWZiKScqQ=s1600)
+![ example image ](http://postimg.org/image/pj4yu1vyx/)
 
 ## Notebook theme selector
 
-This is a Jupyter notebook extension to select a CSS file for code syntax highlighting. The selected theme is stored in the browsers local storage so every time you open a notebook it will automatically load the theme you selected the last time.
+This is a Jupyter notebook extension to select code syntax highlighting. The selected theme is stored in Jupyter notebooks config file so every time you open a notebook it will automatically load the theme you selected the last time.
 
 Installation:
 
-    $ cd jupyter_themes
-    $ cp -r **  $(ipython locate)/nbextensions/
-    $ nano $(ipython locate)/profile_default/static/custom/custom.js
-
-Add the following code at the end of your `custom.js` and you are done.
-
-```javascript
-if (Jupyter) {
-  $(Jupyter.events).on("app_initialized.NotebookApp", function() {
-
-    var utils = require("base/js/utils");
-    utils.load_extensions('theme_selector');
-  });
-} else {
-  $([IPython.events]).on("app_initialized.NotebookApp", function() {
-    IPython.load_extensions('theme_selector');
-  });
-}
-```
-
-Syntax highlighting was built using [base-16 builder](https://github.com/chriskempson/base16-builder).
+    # Create required directory in case (optional)
+    $ mkdir -p $(jupyter --data-dir)/nbextensions
+    $ cd $(jupyter --data-dir)/nbextensions
+    $ mkdir jupyter_themes && cd jupyter_themes
+    $ wget https://raw.githubusercontent.com/merqurio/jupyter_themes/master/theme_selector.js
+    # Activate the extension
+    $ jupyter nbextension enable vim_binding/vim_binding
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2015 Gabi de Maeztu
+Copyright (c) 2016 Gabi de Maeztu
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
