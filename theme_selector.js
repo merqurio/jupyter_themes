@@ -102,8 +102,8 @@
     		load_css(new_theme);
         var config = code_cell.config;
         var patch = {CodeCell:{cm_config:{theme: new_theme}}}
-        config.update(patch)
-        location.reload();
+        config.update(patch);
+        code_cell.code_mirror.setOption('theme', new_theme);
     }
 
     function load_ipython_extension() {
