@@ -278,15 +278,22 @@
           }
         }
 
-        var key = code_cell.config.data.CodeCell.cm_config.font_family;
+				try {
+					var theme = code_cell.config.data.CodeCell.cm_config.theme; 
+        	var key = code_cell.config.data.CodeCell.cm_config.font_family;
+
+					load_css(code_cell.config.data.CodeCell.cm_config.theme);
+
+					if (key !== "default") {
+						load_font(fonts[key].url);
+						css_toggle(fonts[key].css);
+					}
+				}
+				catch(error) {
+					console.log(error);				
+				}
 
         add_to_toolbar();
-        load_css(code_cell.config.data.CodeCell.cm_config.theme);
-
-        if (key !== "default") {
-          load_font(fonts[key].url);
-          css_toggle(fonts[key].css);
-        }
 
     }
 
