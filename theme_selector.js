@@ -102,7 +102,7 @@
         var cell_menu = $('#cell_menu'),
         	divider = $('<li/>').addClass('divider'),
         	theme_btn = $('<li/>').addClass('dropdown-submenu'),
-          theme_txt = $('<a/>').text('Cell Syntax Theme').attr('href', '#'),
+          theme_txt = $('<a/>').text('Code Syntax Theme').attr('href', '#'),
           theme_list = $('<ul/>').addClass('dropdown-menu').attr('id', 'theme_select'),
           font_btn = $('<li/>').addClass('dropdown-submenu'),
           font_txt = $('<a/>').text('Code Font').attr('href', '#'),
