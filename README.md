@@ -2,15 +2,10 @@
 
 Modify CodeMirror's Color Syntax.
 
------
+<img width="987" alt="preview1" src="https://cloud.githubusercontent.com/assets/1485056/14063819/abe2dc18-f3e2-11e5-94d9-978ec774156e.png">
+<img width="989" alt="preview2" src="https://cloud.githubusercontent.com/assets/1485056/14063820/abfab572-f3e2-11e5-9fee-4b6be0fbc9bb.png">
 
-**NEW IN 0.2** -> Uses CodeMirrors own api & themes
-
-![ example image ](https://cloud.githubusercontent.com/assets/1485056/14039493/573bf7ac-f25d-11e5-9cd6-c6c985cc68c0.png)
-
-## Notebook theme selector
-
-This is a Jupyter notebook extension to select code syntax highlighting. The selected theme is stored in Jupyter notebooks config file so every time you open a notebook it will automatically load the theme you selected the last time.
+This **_Jupyter_ Notebook Extension** let's you select the code syntax highlighting. The selected theme is stored in _notebooks config file_ so every time you open a notebook it will automatically load the theme you selected the last time.
 
 ### Installation:
 
@@ -24,31 +19,24 @@ $ wget https://raw.githubusercontent.com/merqurio/jupyter_themes/master/theme_se
 $ jupyter nbextension enable jupyter_themes/theme_selector
 ```
 
-### Use:
-Find your favourite theme at Cell's menu
-![Cell menu](https://cloud.githubusercontent.com/assets/1485056/14039527/b9f81060-f25d-11e5-84cf-74de7dca707b.png)
+### Usage:
+Find your preferred theme and font at Cell's menu.
+
+<img width="960" alt="screen shot 2016-03-27 at 06 09 53" src="https://cloud.githubusercontent.com/assets/1485056/14063821/ac094150-f3e2-11e5-9f6f-7861aaa69ec0.png">
+
+-----
+#### Changelog
+###### NEW in 0.3.0
+- Adds Font modification
+- Adds line number toggle
+
+###### NEW IN 0.2.0
+- Uses CodeMirrors own api & themes
+
 
 
 ## License
 
-The MIT License (MIT)
+The MIT License (MIT) | See LICENSE.md
 
 Copyright (c) 2015, 2016 Gabi de Maeztu
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.

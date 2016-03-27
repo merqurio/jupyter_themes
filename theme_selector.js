@@ -16,6 +16,7 @@
    'use strict';
 
     var themes = {
+      "Default": null,
       "3024-day": "/static/components/codemirror/theme/3024-day.css",
       "3024-night": "/static/components/codemirror/theme/3024-night.css",
       "ambiance-mobile": "/static/components/codemirror/theme/ambiance-mobile.css",
@@ -56,8 +57,44 @@
       "xq-light": "/static/components/codemirror/theme/xq-light.css",
       "yeti": "/static/components/codemirror/theme/yeti.css",
       "zenburn": "/static/components/codemirror/theme/zenburn.css"
-    },
-      cells = Jupyter.notebook.get_cells(),
+    };
+
+    var fonts = {
+      "Default": {
+        "css": "monospace",
+        "url": null
+      },
+      "Hack": {
+        "css": "Hack",
+        "url": "//cdn.jsdelivr.net/font-hack/2.019/css/hack-extended.min.css"
+      },
+      "Inconsolata": {
+        "css": "Inconsolata",
+        "url": "//fonts.googleapis.com/css?family=Inconsolata"
+      },
+      "Source Code Pro": {
+        "css": "Source Code Pro",
+        "url": "//fonts.googleapis.com/css?family=Source+Code+Pro"
+      },
+      "Roboto Mono": {
+        "css": "Roboto Mono",
+        "url": "//fonts.googleapis.com/css?family=Roboto+Mono"
+      },
+      "Droid Sans Mono": {
+        "css": "Droid Sans Mono",
+        "url": "//fonts.googleapis.com/css?family=Droid+Sans+Mono"
+      },
+      "Ubuntu Mono": {
+        "css": "Ubuntu Mono",
+        "url": "//fonts.googleapis.com/css?family=Ubuntu+Mono"
+      },
+      "PT Mono": {
+        "css": "PT Mono",
+        "url": "//fonts.googleapis.com/css?family=PT+Mono"
+      }
+    };
+
+    var cells = Jupyter.notebook.get_cells(),
       code_cell;
 
     function add_to_toolbar(current_theme) {
@@ -66,14 +103,29 @@
         	divider = $('<li/>').addClass('divider'),
         	theme_btn = $('<li/>').addClass('dropdown-submenu'),
           theme_txt = $('<a/>').text('Cell Syntax Theme').attr('href', '#'),
-          theme_list = $('<ul/>').addClass('dropdown-menu').attr('id', 'theme_select');
+          theme_list = $('<ul/>').addClass('dropdown-menu').attr('id', 'theme_select'),
+          font_btn = $('<li/>').addClass('dropdown-submenu'),
+          font_txt = $('<a/>').text('Code Font').attr('href', '#'),
+          font_list = $('<ul/>').addClass('dropdown-menu').attr('id', 'font_select'),
+          line_btn = $('<li/>'),
+          line_txt = $('<a/>').text('Code Line Numbers').attr('href', '#');
 
         // Add label to the toolbar
-        cell_menu.append(divider).append(theme_btn.append(theme_txt).append(theme_list));
+        cell_menu
+          .append(divider)
+          .append(theme_btn.append(theme_txt).append(theme_list))
+          .append(font_btn.append(font_txt).append(font_list))
+          .append(line_btn.append(line_txt));
 
         // Add themes to the selector
         for (var key in themes){
-            theme_list.append($('<li/>').append($('<a/>').text(key).attr('href', '#').attr('data-value', key)));
+            theme_list.append(
+              $('<li/>').append(
+                $('<a/>').text(key)
+                  .attr('href', '#')
+                  .attr('data-value', key)
+              )
+            );
         }
 
         theme_list.click(
@@ -82,6 +134,57 @@
             if (e.target.tagName === "A"){
                 theme_toggle($(e.target).data("value"));
             }
+          }
+        );
+
+        // Add fonts to the selector
+        for (var key in fonts){
+            font_list.append(
+              $('<li/>').append(
+                $('<a/>').text(key)
+                  .attr('href', '#')
+                  .attr('data-key', key)
+                  .attr('data-css', fonts[key].css)
+                  .attr('data-url', fonts[key].url)
+              )
+            );
+        }
+
+        font_list.click(
+          function(e){
+            e.preventDefault;
+            if (e.target.tagName === "A"){
+                font_toggle(
+                  $(e.target).data("key"),
+                  $(e.target).data("css"),
+                  $(e.target).data("url")
+                );
+            }
+          }
+        );
+
+        // Toggle line numbers
+        line_txt.click(
+          function(e){
+            e.preventDefault;
+
+            var opt = code_cell.config.data.CodeCell.cm_config.lineNumbers;
+            var config = code_cell.config;
+            var patch = {
+              CodeCell:{
+                cm_config:{
+                  lineNumbers: !opt
+                }
+              }
+            }
+            config.update(patch);
+
+            for (var i = 0; i < cells.length; i++){
+              if(cells[i].cell_type == "code"){
+                cells[i].code_mirror.setOption('lineNumbers', !opt);
+              }
+            }
+
           }
         );
 
@@ -97,13 +200,73 @@
         document.getElementsByTagName("head")[0].appendChild(link);
     }
 
+    function load_font(href) {
+      // Create a link element to attach the font
+      var link = document.createElement("link");
+      link.type = "text/css";
+      link.rel = "stylesheet";
+      link.href = href;
+      document.getElementsByTagName("head")[0].appendChild(link);
+    }
+
+    function css_toggle(font) {
+
+      var style = document.getElementById("font-css");
+
+      if (!style){
+        // Create a style element
+        var style = document.createElement("style");
+        style.type = "text/css";
+        style.id = "font-css"
+        document.head.appendChild(style);
+      }
+
+      style.innerText = ".CodeMirror {font-family: z;}".replace("z", font);
+
+    }
+
     function theme_toggle(new_theme) {
 
-    		load_css(new_theme);
-        var config = code_cell.config;
-        var patch = {CodeCell:{cm_config:{theme: new_theme}}}
-        config.update(patch);
-        code_cell.code_mirror.setOption('theme', new_theme);
+      new_theme = (new_theme === "Default")? "ipython" : new_theme;
+
+  		if(new_theme !== "ipython") load_css(new_theme);
+
+      var config = code_cell.config;
+      var patch = {
+        CodeCell:{
+          cm_config:{
+            theme: new_theme
+          }
+        }
+      }
+      config.update(patch);
+
+      for (var i = 0; i < cells.length; i++){
+        if(cells[i].cell_type == "code"){
+          cells[i].code_mirror.setOption('theme', new_theme);
+        }
+      }
+
+    }
+
+    function font_toggle(key, css, url) {
+
+      var config = code_cell.config;
+      var patch = {
+        CodeCell:{
+          cm_config:{
+            font_family: key
+          }
+        }
+      }
+      config.update(patch);
+
+      if (key !== "default") {
+        load_font(url);
+      }
+
+      css_toggle(css);
+
     }
 
     function load_ipython_extension() {
@@ -115,8 +278,15 @@
           }
         }
 
+        var key = code_cell.config.data.CodeCell.cm_config.font_family;
+
         add_to_toolbar();
         load_css(code_cell.config.data.CodeCell.cm_config.theme);
+
+        if (key !== "default") {
+          load_font(fonts[key].url);
+          css_toggle(fonts[key].css);
+        }
 
     }
 
