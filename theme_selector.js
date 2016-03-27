@@ -91,7 +91,11 @@
       "PT Mono": {
         "css": "PT Mono",
         "url": "//fonts.googleapis.com/css?family=PT+Mono"
-      }
+      },
+			"Fira Mono":{
+				"css": "Fira Mono",
+				"url": "//fonts.googleapis.com/css?family=Fira+Mono"
+			}
     };
 
     var cells = Jupyter.notebook.get_cells(),
