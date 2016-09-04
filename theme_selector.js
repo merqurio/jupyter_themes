@@ -92,10 +92,10 @@
         "css": "PT Mono",
         "url": "//fonts.googleapis.com/css?family=PT+Mono"
       },
-			"Fira Mono":{
-				"css": "Fira Mono",
-				"url": "//fonts.googleapis.com/css?family=Fira+Mono"
-			}
+      "Fira Mono":{
+        "css": "Fira Mono",
+        "url": "//fonts.googleapis.com/css?family=Fira+Mono"
+      }
     };
 
     var cells = Jupyter.notebook.get_cells(),
@@ -104,8 +104,8 @@
     function add_to_toolbar(current_theme) {
 
         var cell_menu = $('#cell_menu'),
-        	divider = $('<li/>').addClass('divider'),
-        	theme_btn = $('<li/>').addClass('dropdown-submenu'),
+          divider = $('<li/>').addClass('divider'),
+          theme_btn = $('<li/>').addClass('dropdown-submenu'),
           theme_txt = $('<a/>').text('Code Syntax Theme').attr('href', '#'),
           theme_list = $('<ul/>').addClass('dropdown-menu').attr('id', 'theme_select'),
           font_btn = $('<li/>').addClass('dropdown-submenu'),
@@ -233,7 +233,7 @@
 
       new_theme = (new_theme === "Default")? "ipython" : new_theme;
 
-  		if(new_theme !== "ipython") load_css(new_theme);
+      if(new_theme !== "ipython") load_css(new_theme);
 
       var config = code_cell.config;
       var patch = {
@@ -282,20 +282,20 @@
           }
         }
 
-				try {
-					var theme = code_cell.config.data.CodeCell.cm_config.theme; 
-        	var key = code_cell.config.data.CodeCell.cm_config.font_family;
+        try {
+          var theme = code_cell.config.data.CodeCell.cm_config.theme;
+          var key = code_cell.config.data.CodeCell.cm_config.font_family;
 
-					load_css(code_cell.config.data.CodeCell.cm_config.theme);
+          load_css(code_cell.config.data.CodeCell.cm_config.theme);
 
-					if (key !== "default") {
-						load_font(fonts[key].url);
-						css_toggle(fonts[key].css);
-					}
-				}
-				catch(error) {
-					console.log(error);				
-				}
+          if (key !== "default") {
+            load_font(fonts[key].url);
+            css_toggle(fonts[key].css);
+          }
+        }
+        catch(error) {
+          console.log(error);
+        }
 
         add_to_toolbar();
 
