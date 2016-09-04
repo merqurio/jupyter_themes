@@ -98,8 +98,8 @@
       }
     };
 
-    var cells = Jupyter.notebook.get_cells(),
-      code_cell;
+    var CELLS, CODE_CELL;
+
 
     function add_to_toolbar(current_theme) {
 
@@ -172,8 +172,8 @@
           function(e){
             e.preventDefault;
 
-            var opt = code_cell.config.data.CodeCell.cm_config.lineNumbers;
-            var config = code_cell.config;
+            var opt = CODE_CELL.config.data.CodeCell.cm_config.lineNumbers;
+            var config = CODE_CELL.config;
             var patch = {
               CodeCell:{
                 cm_config:{
@@ -183,9 +183,9 @@
             }
             config.update(patch);
 
-            for (var i = 0; i < cells.length; i++){
-              if(cells[i].cell_type == "code"){
-                cells[i].code_mirror.setOption('lineNumbers', !opt);
+            for (var i = 0; i < CELLS.length; i++){
+              if(CELLS[i].cell_type == "code"){
+                CELLS[i].code_mirror.setOption('lineNumbers', !opt);
               }
             }
 
@@ -235,7 +235,7 @@
 
       if(new_theme !== "ipython") load_css(new_theme);
 
-      var config = code_cell.config;
+      var config = CODE_CELL.config;
       var patch = {
         CodeCell:{
           cm_config:{
@@ -245,9 +245,9 @@
       }
       config.update(patch);
 
-      for (var i = 0; i < cells.length; i++){
-        if(cells[i].cell_type == "code"){
-          cells[i].code_mirror.setOption('theme', new_theme);
+      for (var i = 0; i < CELLS.length; i++){
+        if(CELLS[i].cell_type == "code"){
+          CELLS[i].code_mirror.setOption('theme', new_theme);
         }
       }
 
@@ -255,7 +255,7 @@
 
     function font_toggle(key, css, url) {
 
-      var config = code_cell.config;
+      var config = CODE_CELL.config;
       var patch = {
         CodeCell:{
           cm_config:{
@@ -276,16 +276,18 @@
 
     function load_cells() {
 
-        for (var i = 0; i < cells.length; i++){
-          if(cells[i].cell_type == "code"){
-            code_cell = cells[i];
+        CELLS = Jupyter.notebook.get_cells();
+
+        for (var i = 0; i < CELLS.length; i++){
+          if(CELLS[i].cell_type == "code"){
+            CODE_CELL = CELLS[i];
             break;
           }
         }
 
         try {
-          var theme = code_cell.config.data.CodeCell.cm_config.theme;
-          var key = code_cell.config.data.CodeCell.cm_config.font_family;
+          var theme = CODE_CELL.config.data.CodeCell.cm_config.theme;
+          var key = CODE_CELL.config.data.CodeCell.cm_config.font_family;
 
           load_css(theme);
 
@@ -304,7 +306,9 @@
 
     function load_ipython_extension() {
 
-        if (cells < 1) {
+        CELLS = Jupyter.notebook.get_cells();
+
+        if (CELLS.length < 1) {
             setTimeout(load_cells(), 2000)
         }
         else {
