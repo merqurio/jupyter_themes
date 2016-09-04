@@ -273,7 +273,8 @@
 
     }
 
-    function load_ipython_extension() {
+
+    function load_cells() {
 
         for (var i = 0; i < cells.length; i++){
           if(cells[i].cell_type == "code"){
@@ -298,6 +299,17 @@
         }
 
         add_to_toolbar();
+    }
+
+
+    function load_ipython_extension() {
+
+        if (cells < 1) {
+            setTimeout(load_cells(), 2000)
+        }
+        else {
+            load_cells()
+        }
 
     }
 
