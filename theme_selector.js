@@ -286,7 +286,7 @@
           var theme = code_cell.config.data.CodeCell.cm_config.theme;
           var key = code_cell.config.data.CodeCell.cm_config.font_family;
 
-          load_css(code_cell.config.data.CodeCell.cm_config.theme);
+          load_css(theme);
 
           if (key !== "default") {
             load_font(fonts[key].url);
