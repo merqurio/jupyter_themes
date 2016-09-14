@@ -276,8 +276,6 @@
 
     function load_cells() {
 
-        CELLS = Jupyter.notebook.get_cells();
-
         for (var i = 0; i < CELLS.length; i++){
           if(CELLS[i].cell_type == "code"){
             CODE_CELL = CELLS[i];
@@ -309,7 +307,9 @@
         CELLS = Jupyter.notebook.get_cells();
 
         if (CELLS.length < 1) {
-            setTimeout(load_cells(), 2000)
+            setTimeout(function(){
+                load_ipython_extension();
+            },250);
         }
         else {
             load_cells()
