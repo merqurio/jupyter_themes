@@ -199,7 +199,7 @@
         var link = document.createElement("link");
         link.type = "text/css";
         link.rel = "stylesheet";
-        link.href = require.toUrl(themes[theme]);
+        link.href = Jupyter.notebook.base_url + require.toUrl(themes[theme]);
         link.id = theme + "-css";
         document.getElementsByTagName("head")[0].appendChild(link);
     }
