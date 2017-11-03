@@ -24,8 +24,12 @@ Find your preferred theme and font at Cell's menu.
 
 <img width="960" alt="screen shot 2016-03-27 at 06 09 53" src="https://cloud.githubusercontent.com/assets/1485056/14063821/ac094150-f3e2-11e5-9f6f-7861aaa69ec0.png">
 
------
-#### Changelog
+
+Changelog
+=========
+###### NEW in 0.3.1
+- JupyterHub support (thanks @dlukes)
+
 ###### NEW in 0.3.0
 - Adds Font modification
 - Adds line number toggle
@@ -39,4 +43,4 @@ Find your preferred theme and font at Cell's menu.
 
 The MIT License (MIT) | See LICENSE.md
 
-Copyright (c) 2015, 2016 Gabi de Maeztu
+Copyright (c) 2015, 2016, 2017 Gabi de Maeztu, David Lukes
