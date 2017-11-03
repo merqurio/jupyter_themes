@@ -27,7 +27,7 @@ Find your preferred theme and font at Cell's menu.
 
 Changelog
 =========
-###### NEW in 0.3.1
+###### NEW in 0.4.1
 - JupyterHub support (thanks @dlukes)
 
 ###### NEW in 0.3.0
