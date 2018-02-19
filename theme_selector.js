@@ -1,10 +1,10 @@
 /*
  *
  * @author    Gabriel de Maeztu <gabriel.maeztu@gmail.com>
- * @version   2.0.0
+ * @version   2.0.1
  * @license   MIT license
  * @see       http://github.com/merqurio/jupyter_themes
- * @copyright 2015-2016, Gabriel de Maeztu, http://merqur.io
+ * @copyright 2015-2016-2017-2018, Gabriel de Maeztu, http://merqur.io
  *
  */
 
@@ -199,7 +199,7 @@
         var link = document.createElement("link");
         link.type = "text/css";
         link.rel = "stylesheet";
-        link.href = Jupyter.notebook.base_url + require.toUrl(themes[theme]);
+			  link.href = window.location.origin + require.toUrl(themes[theme]);
         link.id = theme + "-css";
         document.getElementsByTagName("head")[0].appendChild(link);
     }
